@@ -5,12 +5,9 @@ import { HttpModule }     from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { routing }       from './app.routing';
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
 
-import { HeroesComponent }      from './components/heroes/heroes.component';
-import { DashboardComponent }   from './components/dashboard/dashboard.component';
-import { HeroDetailComponent }  from './components/heroDetail/hero-detail.component';
 
-import { HeroService }  from './services/hero.service';
 
 @NgModule({
   imports: [
@@ -21,12 +18,10 @@ import { HeroService }  from './services/hero.service';
     ],
   declarations: [
     AppComponent,
-    HeroesComponent,
-    DashboardComponent,
-    HeroDetailComponent
+      DashboardComponent
   ],
   providers: [
-    HeroService
+
   ],
   bootstrap: [AppComponent]
 })

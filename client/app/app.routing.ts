@@ -13,14 +13,6 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
-  },
-  {
-    path: 'detail/:id',
-    component: HeroDetailComponent
-  },
-  {
-    path: 'heroes',
-    component: HeroesComponent
   }
 ];
 
