@@ -5,7 +5,8 @@ import {infoFormService} from "./infoForm.service";
 
 @Component({
     selector:'Info-Form',
-    templateUrl:'./app/modules/infoForm/components/infoForm.component.html'
+    template:`<h1>test</h1>`
+    // templateUrl:'./app/modules/infoForm/components/infoForm.component.html'
 })
 export class InfoFormComponent{
 
