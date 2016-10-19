@@ -18,7 +18,7 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                 fs = fs_1;
             }],
         execute: function() {
-            templateString = fs.readFileSync(__dirname + '/emailTemplate.ejs', 'utf-8');
+            templateString = fs.readFileSync(__dirname + '/../../view/emailTemplate.ejs', 'utf-8');
             router = express.Router();
             nodeMailer = (function () {
                 function nodeMailer() {
@@ -38,12 +38,16 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                                 to: 'janciao123@gmail.com',
                                 subject: 'Email Example',
                                 text: "hello world!!",
-                                html: ejs.render(templateString, {}) // You can choose to send an HTML body instead
+                                html: ejs.render(templateString, {
+                                    name: req.body.name,
+                                    email: req.body.email,
+                                    contact: req.body.contact
+                                }) // You can choose to send an HTML body instead
                             };
                             transporter.sendMail(mailOptions, function (error, info) {
                                 if (error) {
                                     console.log(error);
-                                    res.json({ error: "error" });
+                                    res.json({ status: "error" });
                                 }
                                 else {
                                     console.log('Message sent: ' + info.response);

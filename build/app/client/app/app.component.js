@@ -20,7 +20,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Tour of Heroes';
+                    this.title = '';
                 }
                 AppComponent = __decorate([
                     core_1.Component({

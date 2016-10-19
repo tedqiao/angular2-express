@@ -31,8 +31,10 @@ System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/map'], fun
                     this._baseUrl = 'api/';
                 }
                 infoFormService.prototype.submit = function (data) {
-                    var options = {};
-                    return this._http.post(this._baseUrl + 'info', data, options).map(function (data) { return data.json(); });
+                    var bodyString = JSON.stringify(data); // Stringify payload
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+                    var options = new http_1.RequestOptions({ headers: headers }); // Create a request option
+                    return this._http.post(this._baseUrl + 'email', data, options).map(function (data) { return data.json(); });
                 };
                 infoFormService = __decorate([
                     core_1.Injectable(), 

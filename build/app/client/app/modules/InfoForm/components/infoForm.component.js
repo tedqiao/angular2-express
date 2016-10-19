@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/forms'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms', "./infoForm.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/forms'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, forms_1;
+    var core_1, forms_1, infoForm_service_1;
     var InfoFormComponent;
     return {
         setters:[
@@ -19,24 +19,31 @@ System.register(['@angular/core', '@angular/forms'], function(exports_1, context
             },
             function (forms_1_1) {
                 forms_1 = forms_1_1;
+            },
+            function (infoForm_service_1_1) {
+                infoForm_service_1 = infoForm_service_1_1;
             }],
         execute: function() {
             InfoFormComponent = (function () {
-                function InfoFormComponent(fb) {
+                function InfoFormComponent(fb, _infoService) {
                     this.fb = fb;
+                    this._infoService = _infoService;
                     this.form = fb.group({
-                        text: ['', forms_1.Validators.compose([forms_1.Validators.required])]
+                        name: ['', forms_1.Validators.compose([forms_1.Validators.required])],
+                        email: ['', forms_1.Validators.compose([forms_1.Validators.required])],
+                        contact: ['', forms_1.Validators.compose([forms_1.Validators.required])]
                     });
                 }
                 InfoFormComponent.prototype.onSubmit = function () {
-                    console.log(this.form.value);
+                    this._infoService.submit(this.form.value).subscribe(function (data) { return console.log(data); });
                 };
                 InfoFormComponent = __decorate([
                     core_1.Component({
                         selector: 'Info-Form',
+                        // template:`<h1>test</h1>`
                         templateUrl: './app/modules/infoForm/components/infoForm.component.html'
                     }), 
-                    __metadata('design:paramtypes', [forms_1.FormBuilder])
+                    __metadata('design:paramtypes', [forms_1.FormBuilder, infoForm_service_1.infoFormService])
                 ], InfoFormComponent);
                 return InfoFormComponent;
             }());
