@@ -17,6 +17,7 @@ app.use(express.static(path.resolve(__dirname, '../../node_modules')));
 app.use(bodyParser.json());
 app.use('/api', new BaseRoutes().routes);
 var renderIndex = function (req, res) {
+    console.log("connection");
     res.sendFile(path.resolve(__dirname, '../client/index.html'));
 };
 app.get('/*', renderIndex);
