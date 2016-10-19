@@ -11,3 +11,4 @@
 /// <reference path="manual/body-parser/body-parser.d.ts" />
 /// <reference path="manual/method-override/method-override.d.ts" />
 /// <reference path="manual/mongoose/mongoose.d.ts" />
+/// <reference path="modules/bluebird/index.d.ts" />
