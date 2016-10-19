@@ -27,7 +27,8 @@ var InfoFormComponent = (function () {
     InfoFormComponent = __decorate([
         core_1.Component({
             selector: 'Info-Form',
-            template: "<h1>test</h1>"
+            // template:`<h1>test</h1>`
+            templateUrl: './infoForm.component.html'
         }), 
         __metadata('design:paramtypes', [forms_1.FormBuilder, infoForm_service_1.infoFormService])
     ], InfoFormComponent);
