@@ -3,6 +3,7 @@
  * Created by Moiz.Kachwala on 15-06-2016.
  */
 var express = require('express');
+var emailRouter = require('../routes/emailRouters');
 // import HeroRoutes = require('../routes/HeroRoutes');
 var app = express();
 var Routes = (function () {
@@ -10,7 +11,7 @@ var Routes = (function () {
     }
     Object.defineProperty(Routes.prototype, "routes", {
         get: function () {
-            // app.use("/", new HeroRoutes().routes);
+            app.use("/email", emailRouter);
             return app;
         },
         enumerable: true,

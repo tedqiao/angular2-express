@@ -1,38 +1,31 @@
-/**
- * Created by Moiz.Kachwala on 15-06-2016.
- */
-System.register(["mongoose", "./../../config/constants/constants"], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var Mongoose, Constants;
-    var DataAccess;
-    return {
-        setters:[
-            function (Mongoose_1) {
-                Mongoose = Mongoose_1;
-            },
-            function (Constants_1) {
-                Constants = Constants_1;
-            }],
-        execute: function() {
-            DataAccess = (function () {
-                function DataAccess() {
-                    DataAccess.connect();
-                }
-                DataAccess.connect = function () {
-                    if (this.mongooseInstance)
-                        return this.mongooseInstance;
-                    this.mongooseConnection = Mongoose.connection;
-                    this.mongooseConnection.once("open", function () {
-                        console.log("Connected to mongodb.");
-                    });
-                    this.mongooseInstance = Mongoose.connect(Constants.DB_CONNECTION_STRING);
-                    return this.mongooseInstance;
-                };
-                return DataAccess;
-            }());
-            DataAccess.connect();
-        }
-    }
-});
+// /**
+//  * Created by Moiz.Kachwala on 15-06-2016.
+//  */
+//
+// import Mongoose = require("mongoose");
+// import Constants = require("./../../config/constants/constants");
+//
+// class DataAccess {
+//     static mongooseInstance: any;
+//     static mongooseConnection: Mongoose.Connection;
+//
+//     constructor () {
+//         DataAccess.connect();
+//     }
+//
+//     static connect (): Mongoose.Connection {
+//         if(this.mongooseInstance) return this.mongooseInstance;
+//
+//         this.mongooseConnection  = Mongoose.connection;
+//         this.mongooseConnection.once("open", () => {
+//             console.log("Connected to mongodb.");
+//         });
+//
+//         this.mongooseInstance = Mongoose.connect(Constants.DB_CONNECTION_STRING);
+//         return this.mongooseInstance;
+//     }
+// }
+//
+// DataAccess.connect();
+// export = DataAccess; 
 //# sourceMappingURL=DataAccess.js.map

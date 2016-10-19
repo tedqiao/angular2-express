@@ -1,28 +1,24 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpModule }     from '@angular/http';
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent }  from './app.component';
-import { routing }       from './app.routing';
-import {DashboardComponent} from "./components/dashboard/dashboard.component";
-
+import {AppComponent}  from './app.component';
+import {routing}       from './app.routing';
+import {sharedModule} from "./shared/shared.module";
+import {coreModule} from "./core/core.module";
 
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    HttpModule,
-    FormsModule,
-    routing
+    imports: [
+        BrowserModule,
+        sharedModule,
+        coreModule,
+        routing
     ],
-  declarations: [
-    AppComponent,
-      DashboardComponent
-  ],
-  providers: [
-
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

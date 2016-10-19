@@ -1,19 +1,19 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
-import { HeroesComponent }      from './components/heroes/heroes.component';
-import { HeroDetailComponent }  from './components/heroDetail/hero-detail.component';
+import {InfoFormComponent} from "./modules/InfoForm/components/infoForm.component";
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/info',
     pathMatch: 'full'
   },
   {
-    path: 'dashboard',
-    component: DashboardComponent
+    path: 'info',
+    component: InfoFormComponent
   }
+
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

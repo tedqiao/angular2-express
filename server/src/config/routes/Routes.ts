@@ -3,6 +3,7 @@
  */
 import express = require('express');
 import path = require('path');
+import emailRouter = require('../routes/emailRouters');
 
 // import HeroRoutes = require('../routes/HeroRoutes');
 
@@ -12,7 +13,7 @@ class Routes {
 
     get routes() {
 
-        // app.use("/", new HeroRoutes().routes);
+         app.use("/email", emailRouter);
         
         return app;
     }

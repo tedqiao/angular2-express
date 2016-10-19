@@ -110,6 +110,11 @@ gulp.task("css", () => {
         .pipe(gulp.dest("dist/client/css"));
 });
 
+gulp.task("view", () => {
+    return gulp.src([
+        './server/src/view/**/**'
+    ]).pipe(gulp.dest("dist/server/view"));
+});
 
 /**
  * Install typings for server and client.
@@ -133,19 +138,6 @@ gulp.task('start', function () {
         .on('restart', function () {
             console.log('restarted!');
         });
-});
-
-/**
- * Build the project.
- * 1. Clean the build directory
- * 2. Build Express server
- * 3. Build the Angular app
- * 4. Copy the resources
- * 5. Copy the dependencies.
- */
-
-gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css', callback);
 });
 
 /**
@@ -175,7 +167,7 @@ gulp.task("build", function (callback) {
  */
 
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css', callback);
+    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css','view',callback);
 });
 
 gulp.task('default', function () {

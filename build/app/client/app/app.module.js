@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/forms', '@angular/http', './app.component', './app.routing', './components/heroes/heroes.component', './components/dashboard/dashboard.component', './components/heroDetail/hero-detail.component', './services/hero.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './app.component', './app.routing', "./shared/shared.module", "./core/core.module"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, forms_1, http_1, app_component_1, app_routing_1, heroes_component_1, dashboard_component_1, hero_detail_component_1, hero_service_1;
+    var core_1, platform_browser_1, app_component_1, app_routing_1, shared_module_1, core_module_1;
     var AppModule;
     return {
         setters:[
@@ -20,29 +20,17 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
             function (platform_browser_1_1) {
                 platform_browser_1 = platform_browser_1_1;
             },
-            function (forms_1_1) {
-                forms_1 = forms_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
             function (app_component_1_1) {
                 app_component_1 = app_component_1_1;
             },
             function (app_routing_1_1) {
                 app_routing_1 = app_routing_1_1;
             },
-            function (heroes_component_1_1) {
-                heroes_component_1 = heroes_component_1_1;
+            function (shared_module_1_1) {
+                shared_module_1 = shared_module_1_1;
             },
-            function (dashboard_component_1_1) {
-                dashboard_component_1 = dashboard_component_1_1;
-            },
-            function (hero_detail_component_1_1) {
-                hero_detail_component_1 = hero_detail_component_1_1;
-            },
-            function (hero_service_1_1) {
-                hero_service_1 = hero_service_1_1;
+            function (core_module_1_1) {
+                core_module_1 = core_module_1_1;
             }],
         execute: function() {
             AppModule = (function () {
@@ -52,19 +40,14 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/forms',
                     core_1.NgModule({
                         imports: [
                             platform_browser_1.BrowserModule,
-                            http_1.HttpModule,
-                            forms_1.FormsModule,
+                            shared_module_1.sharedModule,
+                            core_module_1.coreModule,
                             app_routing_1.routing
                         ],
                         declarations: [
-                            app_component_1.AppComponent,
-                            heroes_component_1.HeroesComponent,
-                            dashboard_component_1.DashboardComponent,
-                            hero_detail_component_1.HeroDetailComponent
+                            app_component_1.AppComponent
                         ],
-                        providers: [
-                            hero_service_1.HeroService
-                        ],
+                        providers: [],
                         bootstrap: [app_component_1.AppComponent]
                     }), 
                     __metadata('design:paramtypes', [])
