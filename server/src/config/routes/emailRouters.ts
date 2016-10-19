@@ -2,11 +2,12 @@ import express = require("express");
 import nodemailer = require("nodemailer");
 import ejs = require("ejs");
 import fs = require("fs");
+
 var templateString = fs.readFileSync(__dirname + '/../../view/emailTemplate.ejs', 'utf-8');
 
 var router = express.Router();
-class nodeMailer {
 
+class nodeMailer {
 
     constructor() {
 
@@ -18,16 +19,15 @@ class nodeMailer {
             var transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
-                    user: 'centimaniinfo@gmail.com', // Your email id
-                    pass: 'qiaojian123' // Your password
+                    user: process.env.EMAIL_USER, // Your email id
+                    pass: process.env.EMAIL_PASS// Your password
                 }
             })
 
             var mailOptions = {
-                from: 'centimaniinfo@gmail.com', // sender address
-                to: 'janciao123@gmail.com', // list of receivers
-                subject: 'Email Example', // Subject line
-                text: "hello world!!", // plaintext body
+                from: process.env.EMAIL_USER, // sender address
+                to: process.env.EMAIL_TO, // list of receivers
+                subject: 'Info', // Subject line
                 html: ejs.render(templateString, {
                     name: req.body.name,
                     email: req.body.email,
@@ -43,7 +43,6 @@ class nodeMailer {
                     console.log('Message sent: ' + info.response);
                     res.json({status: "ok"});
                 }
-                ;
             })
         });
 

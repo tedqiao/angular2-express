@@ -116,6 +116,12 @@ gulp.task("view", () => {
     ]).pipe(gulp.dest("dist/server/view"));
 });
 
+gulp.task("ENV", () => {
+    return gulp.src([
+        './server/process.env'
+    ]).pipe(gulp.dest("dist/server"));
+});
+
 /**
  * Install typings for server and client.
  */
@@ -167,7 +173,7 @@ gulp.task('start', function () {
  */
 
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css','view',callback);
+    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css','ENV','view',callback);
 });
 
 gulp.task('default', function () {

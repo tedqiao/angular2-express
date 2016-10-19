@@ -8,6 +8,8 @@ const appRoutes: Routes = [
     redirectTo: '/info',
     pathMatch: 'full'
   },
+
+
   {
     path: 'info',
     component: InfoFormComponent

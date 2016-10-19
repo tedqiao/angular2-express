@@ -2,7 +2,7 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var express, nodemailer, ejs, fs;
-    var templateString, router, nodeMailer;
+    var env, templateString, router, nodeMailer;
     return {
         setters:[
             function (express_1) {
@@ -18,6 +18,7 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                 fs = fs_1;
             }],
         execute: function() {
+            env = process.env.NODE_ENV || 'developement';
             templateString = fs.readFileSync(__dirname + '/../../view/emailTemplate.ejs', 'utf-8');
             router = express.Router();
             nodeMailer = (function () {

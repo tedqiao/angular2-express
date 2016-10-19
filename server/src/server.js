@@ -5,7 +5,8 @@ var BaseRoutes = require("./config/routes/Routes");
 var bodyParser = require("body-parser");
 var path = require('path');
 var port = process.env.PORT || 3000;
-var env = process.env.NODE_ENV || 'developement';
+var env = process.env.NODE_ENV || 'dev';
+require('dotenv').config({ path: __dirname + '/process.env' });
 var app = express();
 exports.app = app;
 app.set('port', port);
@@ -20,7 +21,7 @@ var renderIndex = function (req, res) {
     res.sendFile(path.resolve(__dirname, '../client/index.html'));
 };
 app.get('/*', renderIndex);
-if (env === 'developement') {
+if (env === 'dev') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.json({
