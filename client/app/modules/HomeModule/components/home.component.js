@@ -9,27 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var InfoForm_module_1 = require("../modules/InfoForm/InfoForm.module");
-var homeModule_1 = require("../modules/HomeModule/homeModule");
-var coreModule = (function () {
-    function coreModule() {
+var homeComponent = (function () {
+    function homeComponent() {
     }
-    coreModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                InfoForm_module_1.InfoFormModule,
-                homeModule_1.HomeModule
-            ],
-            declarations: [],
-            providers: [],
-            exports: [
-                InfoForm_module_1.InfoFormModule,
-                homeModule_1.HomeModule
-            ]
+    homeComponent = __decorate([
+        core_1.Component({
+            selector: 'home',
+            moduleId: module.id,
+            templateUrl: 'home.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], coreModule);
-    return coreModule;
+    ], homeComponent);
+    return homeComponent;
 }());
-exports.coreModule = coreModule;
-//# sourceMappingURL=core.module.js.map
+exports.homeComponent = homeComponent;
+//# sourceMappingURL=home.component.js.map

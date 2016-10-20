@@ -1,6 +1,3 @@
-/**
- * Created by jianqiao on 10/18/16.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12,32 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var infoForm_component_1 = require("./components/infoForm.component");
 var shared_module_1 = require("../../shared/shared.module");
-var infoForm_service_1 = require("./components/infoForm.service");
-var info_routing_1 = require("./components/info.routing");
-var InfoFormModule = (function () {
-    function InfoFormModule() {
+var home_component_1 = require("./components/home.component");
+var home_routing_1 = require("./components/home.routing");
+var HomeModule = (function () {
+    function HomeModule() {
     }
-    InfoFormModule = __decorate([
+    HomeModule = __decorate([
         core_1.NgModule({
             imports: [
                 shared_module_1.sharedModule,
-                info_routing_1.routing
+                home_routing_1.routing
             ],
             declarations: [
-                infoForm_component_1.InfoFormComponent,
-            ],
-            providers: [
-                infoForm_service_1.infoFormService
+                home_component_1.homeComponent
             ],
             exports: [
-                infoForm_component_1.InfoFormComponent
-            ]
+                home_component_1.homeComponent
+            ],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], InfoFormModule);
-    return InfoFormModule;
+    ], HomeModule);
+    return HomeModule;
 }());
-exports.InfoFormModule = InfoFormModule;
-//# sourceMappingURL=InfoForm.module.js.map
+exports.HomeModule = HomeModule;
+//# sourceMappingURL=homeModule.js.map

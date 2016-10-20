@@ -7,11 +7,13 @@ import {NgModule} from '@angular/core';
 import {InfoFormComponent} from "./components/infoForm.component";
 import {sharedModule} from "../../shared/shared.module";
 import {infoFormService} from "./components/infoForm.service";
+import {routing} from "./components/info.routing";
 
 
 @NgModule({
     imports:[
-        sharedModule
+        sharedModule,
+        routing
     ],
     declarations:[
         InfoFormComponent,

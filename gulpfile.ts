@@ -14,7 +14,11 @@ const gulp = require("gulp"),
     concat = require('gulp-concat'),
     runSequence = require('run-sequence'),
     nodemon = require('gulp-nodemon'),
-    gulpTypings = require("gulp-typings");
+    gulpTypings = require("gulp-typings"),
+    uglify = require('gulp-uglify'),
+    sysBuilder = require('systemjs-builder');
+;
+
 
 /**
  * Remove build directory.
@@ -52,9 +56,9 @@ gulp.task('build:client', function () {
 gulp.task('tslint', () => {
     return gulp.src("client/app/**/*.ts")
         .pipe(tslint({
-			formatter: "prose"
-		}))
-		.pipe(tslint.report());
+            formatter: "prose"
+        }))
+        .pipe(tslint.report());
 });
 
 
@@ -90,14 +94,42 @@ gulp.task("serverResources", () => {
  * Copy all required libraries into build directory.
  */
 gulp.task("libs", () => {
+    gulp.src([
+        'node_modules/reflect-metadata/Reflect.js.map',
+        'node_modules/systemjs/dist/system-polyfills.js.map'
+    ]).pipe(gulp.dest('dist/client/libs'));
+
     return gulp.src([
-        'core-js/client/**',
-        'zone.js/dist/zone.js',
+        'core-js/client/shim.min.js',
+        'zone.js/dist/zone.min.js',
         'reflect-metadata/Reflect.js',
-        'reflect-metadata/Reflect.js.map',
         'systemjs/dist/system.src.js'
-    ], { cwd: "node_modules/**" }) /* Glob required here. */
+    ], {cwd: "node_modules/**"})/* Glob required here. */
+        .pipe(concat('vendors.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest("dist/client/libs"));
+});
+
+// Generate systemjs-based builds
+gulp.task('bundle:js', function () {
+
+    var builder = new sysBuilder('./', 'client/systemjs.config.js');
+    builder.loader.defaultJSExtensions = true;
+    return builder.buildStatic('dist/client/app/main', 'dist/client/libs/app.min.js', {minify: true, sourceMaps: true})
+        .then(function () {
+            return;
+        })
+        .catch(function (err) {
+            console.error('>>> [systemjs-builder] Bundling failed', err);
+        });
+});
+
+// Minify JS bundle
+gulp.task('minify:js', function () {
+    return gulp
+        .src('dist/client/libs/app.min.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/client/libs'));
 });
 
 /**
@@ -106,7 +138,7 @@ gulp.task("libs", () => {
 gulp.task("css", () => {
     return gulp.src([
         'bootstrap/dist/**/**'
-    ], { cwd: "node_modules/**" }) /* Glob required here. */
+    ], {cwd: "node_modules/**"}) /* Glob required here. */
         .pipe(gulp.dest("dist/client/css"));
 });
 
@@ -173,7 +205,7 @@ gulp.task('start', function () {
  */
 
 gulp.task("build", function (callback) {
-    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css','ENV','view',callback);
+    runSequence('clean', 'build:server', 'build:client', 'clientResources', 'serverResources', 'libs', 'css', 'ENV', 'view', callback);
 });
 
 gulp.task('default', function () {

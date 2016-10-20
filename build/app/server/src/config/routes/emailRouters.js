@@ -2,7 +2,7 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var express, nodemailer, ejs, fs;
-    var env, templateString, router, nodeMailer;
+    var templateString, router, nodeMailer;
     return {
         setters:[
             function (express_1) {
@@ -18,7 +18,6 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                 fs = fs_1;
             }],
         execute: function() {
-            env = process.env.NODE_ENV || 'developement';
             templateString = fs.readFileSync(__dirname + '/../../view/emailTemplate.ejs', 'utf-8');
             router = express.Router();
             nodeMailer = (function () {
@@ -30,15 +29,14 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                             var transporter = nodemailer.createTransport({
                                 service: 'Gmail',
                                 auth: {
-                                    user: 'centimaniinfo@gmail.com',
-                                    pass: 'qiaojian123' // Your password
+                                    user: process.env.EMAIL_USER,
+                                    pass: process.env.EMAIL_PASS // Your password
                                 }
                             });
                             var mailOptions = {
-                                from: 'centimaniinfo@gmail.com',
-                                to: 'janciao123@gmail.com',
-                                subject: 'Email Example',
-                                text: "hello world!!",
+                                from: process.env.EMAIL_USER,
+                                to: process.env.EMAIL_TO,
+                                subject: 'Info',
                                 html: ejs.render(templateString, {
                                     name: req.body.name,
                                     email: req.body.email,
@@ -54,7 +52,6 @@ System.register(["express", "nodemailer", "ejs", "fs"], function(exports_1, cont
                                     console.log('Message sent: ' + info.response);
                                     res.json({ status: "ok" });
                                 }
-                                ;
                             });
                         });
                         return router;

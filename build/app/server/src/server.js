@@ -19,10 +19,9 @@ System.register(['express', "./config/routes/Routes", "body-parser", 'path'], fu
                 path = path_1;
             }],
         execute: function() {
-            require('dotenv').config({ silent: true, path: __dirname });
             port = process.env.PORT || 3000;
-            env = process.env.NODE_ENV || 'developement';
-            console.log(process.env.EMAIL);
+            env = process.env.NODE_ENV || 'dev';
+            require('dotenv').config({ path: __dirname + '/process.env' });
             app = express();
             app.set('port', port);
             app.use('/app', express.static(path.resolve(__dirname, '../client/app')));
@@ -36,7 +35,7 @@ System.register(['express', "./config/routes/Routes", "body-parser", 'path'], fu
                 res.sendFile(path.resolve(__dirname, '../client/index.html'));
             };
             app.get('/*', renderIndex);
-            if (env === 'developement') {
+            if (env === 'dev') {
                 app.use(function (err, req, res, next) {
                     res.status(err.status || 500);
                     res.json({

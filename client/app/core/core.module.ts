@@ -2,6 +2,7 @@
 
 import {NgModule} from '@angular/core';
 import {InfoFormModule} from "../modules/InfoForm/InfoForm.module";
+import {HomeModule} from "../modules/HomeModule/homeModule";
 
 
 
@@ -9,7 +10,8 @@ import {InfoFormModule} from "../modules/InfoForm/InfoForm.module";
 
 @NgModule({
     imports: [
-        InfoFormModule
+        InfoFormModule,
+        HomeModule
     ],
     declarations: [
     ],
@@ -17,7 +19,8 @@ import {InfoFormModule} from "../modules/InfoForm/InfoForm.module";
 
     ],
     exports:[
-        InfoFormModule
+        InfoFormModule,
+        HomeModule
     ]
 })
 export class coreModule {

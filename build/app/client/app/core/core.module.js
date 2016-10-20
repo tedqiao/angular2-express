@@ -1,4 +1,4 @@
-System.register(['@angular/core', "../modules/InfoForm/InfoForm.module"], function(exports_1, context_1) {
+System.register(['@angular/core', "../modules/InfoForm/InfoForm.module", "../modules/HomeModule/homeModule"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', "../modules/InfoForm/InfoForm.module"], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, InfoForm_module_1;
+    var core_1, InfoForm_module_1, homeModule_1;
     var coreModule;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', "../modules/InfoForm/InfoForm.module"], functi
             },
             function (InfoForm_module_1_1) {
                 InfoForm_module_1 = InfoForm_module_1_1;
+            },
+            function (homeModule_1_1) {
+                homeModule_1 = homeModule_1_1;
             }],
         execute: function() {
             coreModule = (function () {
@@ -27,12 +30,14 @@ System.register(['@angular/core', "../modules/InfoForm/InfoForm.module"], functi
                 coreModule = __decorate([
                     core_1.NgModule({
                         imports: [
-                            InfoForm_module_1.InfoFormModule
+                            InfoForm_module_1.InfoFormModule,
+                            homeModule_1.HomeModule
                         ],
                         declarations: [],
                         providers: [],
                         exports: [
-                            InfoForm_module_1.InfoFormModule
+                            InfoForm_module_1.InfoFormModule,
+                            homeModule_1.HomeModule
                         ]
                     }), 
                     __metadata('design:paramtypes', [])

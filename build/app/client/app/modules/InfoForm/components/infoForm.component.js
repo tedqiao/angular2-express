@@ -28,6 +28,8 @@ System.register(['@angular/core', '@angular/forms', "./infoForm.service"], funct
                 function InfoFormComponent(fb, _infoService) {
                     this.fb = fb;
                     this._infoService = _infoService;
+                    this.handler = function (data) {
+                    };
                     this.form = fb.group({
                         name: ['', forms_1.Validators.compose([forms_1.Validators.required])],
                         email: ['', forms_1.Validators.compose([forms_1.Validators.required])],
@@ -35,12 +37,11 @@ System.register(['@angular/core', '@angular/forms', "./infoForm.service"], funct
                     });
                 }
                 InfoFormComponent.prototype.onSubmit = function () {
-                    this._infoService.submit(this.form.value).subscribe(function (data) { return console.log(data); });
+                    this._infoService.submit(this.form.value).subscribe(this.handler);
                 };
                 InfoFormComponent = __decorate([
                     core_1.Component({
                         selector: 'Info-Form',
-                        // template:`<h1>test</h1>`,
                         moduleId: module.id,
                         templateUrl: 'infoForm.component.html'
                     }), 

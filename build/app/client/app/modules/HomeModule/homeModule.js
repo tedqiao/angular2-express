@@ -1,7 +1,4 @@
-/**
- * Created by jianqiao on 10/18/16.
- */
-System.register(['@angular/core', "./components/infoForm.component", "../../shared/shared.module", "./components/infoForm.service", "./components/info.routing"], function(exports_1, context_1) {
+System.register(['@angular/core', "../../shared/shared.module", "./components/home.component", "./components/home.routing"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,51 +10,46 @@ System.register(['@angular/core', "./components/infoForm.component", "../../shar
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, infoForm_component_1, shared_module_1, infoForm_service_1, info_routing_1;
-    var InfoFormModule;
+    var core_1, shared_module_1, home_component_1, home_routing_1;
+    var HomeModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (infoForm_component_1_1) {
-                infoForm_component_1 = infoForm_component_1_1;
-            },
             function (shared_module_1_1) {
                 shared_module_1 = shared_module_1_1;
             },
-            function (infoForm_service_1_1) {
-                infoForm_service_1 = infoForm_service_1_1;
+            function (home_component_1_1) {
+                home_component_1 = home_component_1_1;
             },
-            function (info_routing_1_1) {
-                info_routing_1 = info_routing_1_1;
+            function (home_routing_1_1) {
+                home_routing_1 = home_routing_1_1;
             }],
         execute: function() {
-            InfoFormModule = (function () {
-                function InfoFormModule() {
+            HomeModule = (function () {
+                function HomeModule() {
                 }
-                InfoFormModule = __decorate([
+                HomeModule = __decorate([
                     core_1.NgModule({
                         imports: [
                             shared_module_1.sharedModule,
-                            info_routing_1.routing
+                            home_routing_1.routing
                         ],
                         declarations: [
-                            infoForm_component_1.InfoFormComponent,
-                        ],
-                        providers: [
-                            infoForm_service_1.infoFormService
+                            home_component_1.homeComponent
                         ],
                         exports: [
-                            infoForm_component_1.InfoFormComponent
-                        ]
+                            home_component_1.homeComponent
+                        ],
+                        providers: []
                     }), 
                     __metadata('design:paramtypes', [])
-                ], InfoFormModule);
-                return InfoFormModule;
+                ], HomeModule);
+                return HomeModule;
             }());
-            exports_1("InfoFormModule", InfoFormModule);
+            exports_1("HomeModule", HomeModule);
         }
     }
 });
-//# sourceMappingURL=InfoForm.module.js.map
+//# sourceMappingURL=homeModule.js.map

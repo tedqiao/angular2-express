@@ -12,12 +12,14 @@
 
     <!-- 1. Load libraries -->
     <!-- Polyfill(s) for older browsers -->
-    <script src="libs/core-js/client/shim.min.js"></script>
-    <script src="libs/zone.js/dist/zone.js"></script>
-    <script src="libs/reflect-metadata/Reflect.js"></script>
-    <script src="libs/systemjs/dist/system.src.js"></script>
+    <script src="libs/vendors.min.js"></script>
+    <!--<script src="libs/core-js/client/shim.min.js"></script>-->
+    <!--<script src="libs/zone.js/dist/zone.min.js"></script>-->
+    <!--<script src="libs/reflect-metadata/Reflect.js"></script>-->
+    <!--<script src="libs/systemjs/dist/system.src.js"></script>-->
 
     <!-- 2. Configure SystemJS -->
+    <!--<script src="libs/app.min.js"></script>-->
     <script src="systemjs.config.js"></script>
     <script>
         System.import('app').catch(function (err) {
