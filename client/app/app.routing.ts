@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import {InfoFormComponent} from "./modules/InfoForm/components/infoForm.component";
-import {homeComponent} from "./modules/HomeModule/components/home.component";
+import {InfoFormComponent} from "./modules/InfoForm/infoForm.component";
+import {homeComponent} from "./modules/HomeModule/home.component";
 
 const appRoutes: Routes = [
   {

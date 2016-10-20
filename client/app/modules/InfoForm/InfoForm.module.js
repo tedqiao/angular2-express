@@ -12,10 +12,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var infoForm_component_1 = require("./components/infoForm.component");
+var infoForm_component_1 = require("./infoForm.component");
 var shared_module_1 = require("../../shared/shared.module");
-var infoForm_service_1 = require("./components/infoForm.service");
-var info_routing_1 = require("./components/info.routing");
+var infoForm_service_1 = require("./infoForm.service");
+var info_routing_1 = require("./info.routing");
 var InfoFormModule = (function () {
     function InfoFormModule() {
     }

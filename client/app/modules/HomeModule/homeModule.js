@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var shared_module_1 = require("../../shared/shared.module");
-var home_component_1 = require("./components/home.component");
-var home_routing_1 = require("./components/home.routing");
+var home_component_1 = require("./home.component");
+var home_routing_1 = require("./home.routing");
 var HomeModule = (function () {
     function HomeModule() {
     }
